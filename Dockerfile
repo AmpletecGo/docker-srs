@@ -10,10 +10,10 @@ RUN yum -y update && \
     make && \
     make install && \
     cp -HR objs/ffmpeg /usr/local/srs/objs/ && \
-	cd /tmp && \
+    cd /tmp && \
     rm -rf * && \
-	yum -y erase unzip gcc gcc-c++ make patch pcre-devel automake libtool zlib-devel sudo net-tools && \
-	yum -y autoremove && \
+    yum -y erase unzip gcc gcc-c++ make patch pcre-devel automake libtool zlib-devel sudo net-tools && \
+    yum -y autoremove && \
     yum -y clean all
 
 EXPOSE 1935 1985 8080
