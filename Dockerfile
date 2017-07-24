@@ -6,9 +6,10 @@ RUN yum -y update && \
     curl -L -o 3.0release.zip https://github.com/ossrs/srs/archive/3.0release.zip && \
     unzip 3.0release.zip && \
     cd srs-3.0release/trunk && \
-    ./configure --full && \
+    ./configure --disable-all --with-ssl --with-ffmpeg --with-transcode && \
     make && \
     make install && \
+    cp -HR objs/ffmpeg /usr/local/srs/objs/ && \
 	cd /tmp && \
     rm -rf * && \
 	yum -y erase unzip gcc gcc-c++ make patch pcre-devel automake libtool zlib-devel sudo net-tools && \
